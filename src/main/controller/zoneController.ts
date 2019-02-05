@@ -17,11 +17,11 @@ const validate = {
       totalBetas: 'numeric',
       image: 'string',
     }, ctx.request.body);
-  }
+  },
 };
 
 export default class ZoneController {
-  public static async getZones (ctx: BaseContext) {
+  public static async getZones(ctx: BaseContext) {
     await Zone.find().then((data) => {
       ctx.body = data;
     }, (err) => {
@@ -29,10 +29,11 @@ export default class ZoneController {
     });
   }
 
-  public static async getZoneByName (ctx: BaseContext) {
-    let name = ctx.params.name || '';
+  public static async getZoneByName(ctx: BaseContext) {
+    const name = ctx.params.name || '';
     if (name) {
-      await Zone.findOne({'name': name}).then((data) => {
+      // Note: {name} is as same as {'name': name}, because of key name matches name of the assigned variable
+      await Zone.findOne({name}).then((data) => {
         ctx.body = data;
       }, (err) => {
         ctx.body = err.message;
@@ -42,7 +43,7 @@ export default class ZoneController {
     }
   }
 
-  public static async createZone (ctx: BaseContext) {
+  public static async createZone(ctx: BaseContext) {
     validate.reqDataForCreateZone(ctx);
 
     await Zone.create(ctx.request.body).then((data) => {
@@ -53,13 +54,13 @@ export default class ZoneController {
     });
   }
 
-  public static async updateZoneByName (ctx: BaseContext) {
+  public static async updateZoneByName(ctx: BaseContext) {
     validate.reqDataForUpdateZoneByName(ctx);
 
-    let name = ctx.params.name || '';
+    const name = ctx.params.name || '';
     if (name) {
-      await Zone.updateOne({'name': name}, {
-        $set: ctx.request.body
+      await Zone.updateOne({name}, {
+        $set: ctx.request.body,
       }).then((res) => {
         if (res.ok && res.nModified) {
           ctx.body = ctx.request.body;
@@ -75,10 +76,10 @@ export default class ZoneController {
     }
   }
 
-  public static async deleteZoneByName (ctx: BaseContext) {
-    let name = ctx.params.name || '';
+  public static async deleteZoneByName(ctx: BaseContext) {
+    const name = ctx.params.name || '';
     if (name) {
-      await Zone.deleteOne({'name': name}).then((data) => {
+      await Zone.deleteOne({name}).then((data) => {
         ctx.body = data;
       }, (err) => {
         ctx.status = 500;

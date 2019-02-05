@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const zoneSchema = new Schema({
@@ -11,16 +11,16 @@ const zoneSchema = new Schema({
   },
   totalRoutes: {
     type: Number,
-    required: true
+    required: true,
   },
   totalBetas: {
     type: Number,
-    required: true
+    required: true,
   },
   image: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 export default mongoose.model('Zone', zoneSchema);

@@ -6,7 +6,6 @@ const expect = require('chai').expect;
 
 chai.use(require('chai-http'));
 
-
 const app = require('../main/index.ts');
 const request = supertest(app);
 
@@ -26,4 +25,3 @@ describe('Zones', () => {
   });
 
 });
-

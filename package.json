@@ -2,9 +2,9 @@
   "name": "climbing-beta-server",
   "version": "1.0.0",
   "main": "src/main/index.ts",
-  "license": "CC0-1.0",
+  "license": "",
   "scripts": {
-    "build-server": "tslint --project . && tsc",
+    "build": "tslint --fix --project ./tslint.json 'src/**/*.ts' && tsc",
     "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register src/test/zone.test.ts ",
     "start-db": "mongod --config ./src/main/conf/mongod.cfg",
     "start": "cross-env NODE_ENV=development nodemon --watch 'src/main/***/*' -e ts,tsx --exec ts-node ./src/main/index.ts"
