@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "lib": ["es6"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "target": "es6",
+        "noImplicitAny": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "typeRoots": [ "node_modules/@types" ]
+    },
+    "include": [
+        "src/main/**/*"
+    ]
+}
