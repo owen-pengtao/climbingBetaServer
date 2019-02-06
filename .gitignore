@@ -4,3 +4,5 @@ package-lock.json
 .idea
 data/climbingBeta
 .npmrc
+src/main/**/*.js
+src/main/**/*.js.map

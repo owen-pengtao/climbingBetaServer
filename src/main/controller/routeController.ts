@@ -8,9 +8,10 @@ const validate = {
       totalBetas: 'required|numeric',
       routeSetter: 'required|string',
       color: 'required|string',
-      date: 'required|date',
+      date: 'required|dateFormat:MM/DD/YYYY',
       grade: 'required|string',
       images: 'required|array',
+      'images.*': 'required|string',
     }, ctx.request.body);
   },
   reqDataForUpdateRouteByRouteId: async (ctx) => {
@@ -18,14 +19,16 @@ const validate = {
       totalBetas: 'numeric',
       routeSetter: 'string',
       color: 'string',
-      date: 'date',
+      date: 'dateFormat:MM/DD/YYYY',
       grade: 'string',
       images: 'array',
+      'images.*': 'string',
     }, ctx.request.body);
   },
 };
 
-export default class RouteController {
+
+export default class routeController {
   public static async getRoutesByZoneId(ctx: BaseContext) {
     const zoneId = ctx.params.zoneId || '';
     if (zoneId) {

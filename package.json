@@ -4,10 +4,11 @@
   "main": "src/main/index.ts",
   "license": "",
   "scripts": {
+    "init": "mkdir -p data/climbingBeta && npm install",
     "build": "tslint --fix --project ./tslint.json 'src/**/*.ts' && tsc",
     "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register src/test/zone.test.ts ",
     "start-db": "mongod --config ./src/main/conf/mongod.cfg",
-    "start": "cross-env NODE_ENV=development nodemon --watch 'src/main/***/*' -e ts,tsx --exec ts-node ./src/main/index.ts"
+    "start": "cross-env NODE_ENV=development nodemon --watch 'src/main' -e ts,tsx --exec ts-node ./src/main/index.ts"
   },
   "devDependencies": {
     "@types/chai": "4.1.7",

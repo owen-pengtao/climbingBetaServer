@@ -20,7 +20,7 @@ const validate = {
   },
 };
 
-export default class ZoneController {
+export default class zoneController {
   public static async getZones(ctx: BaseContext) {
     await Zone.find().then((data) => {
       ctx.body = data;

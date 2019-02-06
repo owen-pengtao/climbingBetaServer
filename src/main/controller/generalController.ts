@@ -1,6 +1,6 @@
 import { BaseContext } from 'koa';
 
-export default class GeneralController {
+export default class generalController {
 
   public static async helloWorld(ctx: BaseContext) {
     ctx.body = 'Hello World!';
