@@ -9,6 +9,7 @@
     "target": "es6",
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
     "typeRoots": [ "node_modules/@types" ]
   },
   "include": [
